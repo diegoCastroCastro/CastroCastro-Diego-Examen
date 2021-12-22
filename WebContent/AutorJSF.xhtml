@@ -4,7 +4,7 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
-	<title>Categorías</title>
+	<title>Autor</title>
 	<style>
 		.tabla {
 			border-collapse: collapse;
@@ -31,6 +31,47 @@
 	</style>
 </h:head>
 <h:body>
-	<h1>HOLA</h1>
+	<h3>Gestión Autores</h3>
+	<h:form>
+		<h:dataTable value="#{autorBean.list}" var="c" styleClass="tabla"
+			headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
+			<h:column>
+				<f:facet name="header">Codigo</f:facet>#{c.codigo}</h:column>
+			<h:column>
+				<f:facet name="header">Nombre</f:facet>
+				<h:inputText value="#{c.nombre}" size="10"
+					rendered="#{c.editable}" />
+				<h:outputText value="#{c.nombre}" rendered="#{not c.editable}" />
+			</h:column>	
+			<h:column>
+				<f:facet name="header">Nacionalidad</f:facet>
+				<h:inputText value="#{c.nacionalidad}" size="10"
+					rendered="#{c.editable}" />
+				<h:outputText value="#{c.nacionalidad}" rendered="#{not c.editable}" />
+			</h:column>		
+			<h:column>
+				<f:facet name="header">Accion</f:facet>
+				<h:commandLink value="Delete" action="#{autorBean.delete(c)}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Accion</f:facet>
+				<h:commandLink value="Edit" action="#{autorBean.edit(c)}"
+					rendered="#{not c.editable}" />
+				<h:commandLink value="Save" action="#{autorBean.save(c)}"
+					rendered="#{c.editable}" />
+			</h:column>
+		</h:dataTable>
+		<ul>
+			Nombre:<h:inputText size="10" value="#{autorBean.nombre}"/>
+		</ul>
+		<ul>
+			Nacionalidad:<h:inputText size="10" value="#{autorBean.nacionalidad}"/>
+		</ul>
+		<ul>
+			Nacionalidad:<h:inputText size="10" value="#{autorBean.nacionalidad}"/>
+		</ul>
+		
+		<h:commandButton value="Add" action="#{autorBean.add}" />
+	</h:form>
 </h:body>
 </html>

@@ -9,11 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.persistence.Transient;
 
+
 @Entity
-@Table(name = "libro")
 public class Libro implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -25,15 +24,26 @@ public class Libro implements Serializable{
 	private String isbn;
 	private int numPag;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "capitulo")
-	private List<Capitulo> listaCapitulos;
-	
 	@Transient
 	private boolean editable;
-
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "libro")
+	private List<Capitulo> listaCapitulos;
+	
 	public Libro() {
-		super();
+		
 	}
+	
+	
+
+	public Libro(String nombre, String isbn, int numPag) {
+		super();
+		this.nombre = nombre;
+		this.isbn = isbn;
+		this.numPag = numPag;
+	}
+
+
 
 	public int getCodigo() {
 		return codigo;
@@ -88,8 +98,6 @@ public class Libro implements Serializable{
 		return "Libro [codigo=" + codigo + ", nombre=" + nombre + ", isbn=" + isbn + ", numPag=" + numPag
 				+ ", listaCapitulos=" + listaCapitulos + ", editable=" + editable + "]";
 	}
-	
-	
 	
 
 }
