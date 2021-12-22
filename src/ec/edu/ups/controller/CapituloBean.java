@@ -3,6 +3,7 @@ package ec.edu.ups.controller;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
@@ -31,6 +32,7 @@ public class CapituloBean implements Serializable {
 		
 	}
 	
+	@PostConstruct
 	public void init() {
 		list = ejCapituloFacade.findAll();
 	}

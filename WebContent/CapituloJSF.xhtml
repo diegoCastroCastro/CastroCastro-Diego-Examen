@@ -4,7 +4,7 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
-	<title>Autor</title>
+	<title>Capitulo</title>
 	<style>
 		.tabla {
 			border-collapse: collapse;
@@ -31,7 +31,7 @@
 	</style>
 </h:head>
 <h:body>
-	<h3>Gestión Autores</h3>
+	<h3>Gestión Capitulos</h3>
 	<h:form>
 		<h:dataTable value="#{capituloBean.list}" var="c" styleClass="tabla"
 			headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
@@ -39,15 +39,15 @@
 				<f:facet name="header">Codigo</f:facet>#{c.codigo}</h:column>
 			<h:column>
 				<f:facet name="header">Numero</f:facet>
-				<h:inputText value="#{c.nombre}" size="10"
+				<h:inputText value="#{c.numero}" size="10"
 					rendered="#{c.editable}" />
-				<h:outputText value="#{c.nombre}" rendered="#{not c.editable}" />
+				<h:outputText value="#{c.numero}" rendered="#{not c.editable}" />
 			</h:column>	
 			<h:column>
 				<f:facet name="header">Titulo</f:facet>
-				<h:inputText value="#{c.nacionalidad}" size="10"
+				<h:inputText value="#{c.titulo}" size="10"
 					rendered="#{c.editable}" />
-				<h:outputText value="#{c.nacionalidad}" rendered="#{not c.editable}" />
+				<h:outputText value="#{c.titulo}" rendered="#{not c.editable}" />
 			</h:column>		
 			<h:column>
 				<f:facet name="header">Accion</f:facet>
@@ -62,10 +62,10 @@
 			</h:column>
 		</h:dataTable>
 		<ul>
-			Numero:<h:inputText size="10" value="#{capituloBean.nombre}"/>
+			Numero:<h:inputText size="10" value="#{capituloBean.numero}"/>
 		</ul>
 		<ul>
-			Titulo:<h:inputText size="10" value="#{capituloBean.nacionalidad}"/>
+			Titulo:<h:inputText size="10" value="#{capituloBean.titulo}"/>
 		</ul>
 		
 		
