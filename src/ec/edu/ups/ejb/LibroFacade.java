@@ -24,4 +24,5 @@ public class LibroFacade extends AbstractFacade<Libro> {
 		// TODO Auto-generated method stub
 		return em;
 	}
+	
 }

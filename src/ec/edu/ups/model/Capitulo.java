@@ -26,13 +26,9 @@ public class Capitulo implements Serializable {
 	@Transient
 	private boolean editable;
 	
-	@ManyToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn
-	private Libro libro;
-	
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "capitulo")
 	private Autor autor;
-	
 	
 
 	public Capitulo() {
@@ -45,6 +41,7 @@ public class Capitulo implements Serializable {
 		super();
 		this.numero = numero;
 		this.titulo = titulo;
+		this.autor = autor;
 	}
 
 
@@ -73,18 +70,22 @@ public class Capitulo implements Serializable {
 		this.titulo = titulo;
 	}
 
-	
 	public boolean isEditable() {
 		return editable;
 	}
-
-
 
 	public void setEditable(boolean editable) {
 		this.editable = editable;
 	}
 
 
+	public Autor getAutor() {
+		return autor;
+	}
+
+	public void setAutor(Autor autor) {
+		this.autor = autor;
+	}
 
 	@Override
 	public String toString() {

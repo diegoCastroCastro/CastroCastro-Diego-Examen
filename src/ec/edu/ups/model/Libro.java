@@ -27,7 +27,7 @@ public class Libro implements Serializable{
 	@Transient
 	private boolean editable;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "libro")
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Capitulo> listaCapitulos;
 	
 	public Libro() {
@@ -41,7 +41,10 @@ public class Libro implements Serializable{
 		this.nombre = nombre;
 		this.isbn = isbn;
 		this.numPag = numPag;
+		this.listaCapitulos = listaCapitulos;
 	}
+	
+	
 
 
 

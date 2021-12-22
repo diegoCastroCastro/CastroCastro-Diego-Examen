@@ -24,8 +24,7 @@ public class Autor implements Serializable {
 	@Transient
 	private boolean editable;
 
-	@OneToOne
-	@JoinColumn
+	@OneToOne(mappedBy = "autor")
 	private Capitulo capitulo;
 	
 	public Autor() {

@@ -40,21 +40,36 @@
 			<h:column>
 				<f:facet name="header">Nombre</f:facet>
 				<h:inputText value="#{c.nombre}" size="10"
-					rendered="#{c.editable}" />
+					rendered="#{c.editable}" requiered="true"/>
 				<h:outputText value="#{c.nombre}" rendered="#{not c.editable}" />
 			</h:column>	
 			<h:column>
 				<f:facet name="header">ISBN</f:facet>
 				<h:inputText value="#{c.isbn}" size="10"
 					rendered="#{c.editable}" />
-				<h:outputText value="#{c.isbn}" rendered="#{not c.editable}" />
+				<h:outputText value="#{c.isbn}" rendered="#{not c.editable}" requiered="true"/>
 			</h:column>	
 			<h:column>
 				<f:facet name="header">Paginas</f:facet>
 				<h:inputText value="#{c.numPag}" size="10"
-					rendered="#{c.editable}" />
+					rendered="#{c.editable}" requiered="true"/>
 				<h:outputText value="#{c.numPag}" rendered="#{not c.editable}" />
 			</h:column>		
+			
+			<h:column>
+				<f:facet name="header">Agregar Capitulos</f:facet>
+				<h:inputText value="#{c.numPag}" size="10"
+					rendered="#{c.editable}" requiered="true" />
+				<h:outputText value="#{c.numPag}" rendered="#{not c.editable}" />
+			</h:column>		
+			
+			<h:column>
+				<f:facet name="header">Autores</f:facet>
+				<h:inputText value="#{libroBean.autor}" size="10"
+					rendered="#{c.editable}" requiered="true"/>
+				<h:outputText value="#{libroBean.autor}" rendered="#{not c.editable}" />
+			</h:column>
+			
 			<h:column>
 				<f:facet name="header">Accion</f:facet>
 				<h:commandLink value="Delete" action="#{libroBean.delete(c)}" />
@@ -76,6 +91,22 @@
 		<ul>
 			Paginas:<h:inputText size="10" value="#{libroBean.numPag}"/>
 		</ul>
+		
+		<ul>
+			Numero de Capitulo:<h:inputText value="#{libroBean.num}"/>
+		</ul>
+		    
+		<ul>
+			Autor:<h:selectOneMenu value="#{libroBean.autor}">
+					<f:selectItem itemLabel="Select One" itemValue=""/>
+					<f:selectItems value="#{autorBean.list}" var="autor" itemLabel="#{autor.nombre}" itemValue="#{autor.codigo}"/>
+				</h:selectOneMenu>
+		</ul>      
+		       
+		   
+		
+		
+		
 		<h:commandButton value="Add" action="#{libroBean.add}" />
 	</h:form>
 </h:body>
