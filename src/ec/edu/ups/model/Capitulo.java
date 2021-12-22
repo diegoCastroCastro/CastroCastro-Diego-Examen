@@ -32,6 +32,22 @@ public class Capitulo implements Serializable {
 	
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "capitulo")
 	private Autor autor;
+	
+	
+
+	public Capitulo() {
+		
+	}
+	
+	
+
+	public Capitulo(int numero, String titulo) {
+		super();
+		this.numero = numero;
+		this.titulo = titulo;
+	}
+
+
 
 	public int getCodigo() {
 		return codigo;
@@ -56,6 +72,19 @@ public class Capitulo implements Serializable {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
+
+	
+	public boolean isEditable() {
+		return editable;
+	}
+
+
+
+	public void setEditable(boolean editable) {
+		this.editable = editable;
+	}
+
+
 
 	@Override
 	public String toString() {

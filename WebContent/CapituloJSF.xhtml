@@ -33,42 +33,43 @@
 <h:body>
 	<h3>Gestión Autores</h3>
 	<h:form>
-		<h:dataTable value="#{autorBean.list}" var="c" styleClass="tabla"
+		<h:dataTable value="#{capituloBean.list}" var="c" styleClass="tabla"
 			headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
 			<h:column>
 				<f:facet name="header">Codigo</f:facet>#{c.codigo}</h:column>
 			<h:column>
-				<f:facet name="header">Nombre</f:facet>
+				<f:facet name="header">Numero</f:facet>
 				<h:inputText value="#{c.nombre}" size="10"
 					rendered="#{c.editable}" />
 				<h:outputText value="#{c.nombre}" rendered="#{not c.editable}" />
 			</h:column>	
 			<h:column>
-				<f:facet name="header">Nacionalidad</f:facet>
+				<f:facet name="header">Titulo</f:facet>
 				<h:inputText value="#{c.nacionalidad}" size="10"
 					rendered="#{c.editable}" />
 				<h:outputText value="#{c.nacionalidad}" rendered="#{not c.editable}" />
 			</h:column>		
 			<h:column>
 				<f:facet name="header">Accion</f:facet>
-				<h:commandLink value="Delete" action="#{autorBean.delete(c)}" />
+				<h:commandLink value="Delete" action="#{capituloBean.delete(c)}" />
 			</h:column>
 			<h:column>
 				<f:facet name="header">Accion</f:facet>
-				<h:commandLink value="Edit" action="#{autorBean.edit(c)}"
+				<h:commandLink value="Edit" action="#{capituloBean.edit(c)}"
 					rendered="#{not c.editable}" />
-				<h:commandLink value="Save" action="#{autorBean.save(c)}"
+				<h:commandLink value="Save" action="#{capituloBean.save(c)}"
 					rendered="#{c.editable}" />
 			</h:column>
 		</h:dataTable>
 		<ul>
-			Nombre:<h:inputText size="10" value="#{autorBean.nombre}"/>
+			Numero:<h:inputText size="10" value="#{capituloBean.nombre}"/>
 		</ul>
 		<ul>
-			Nacionalidad:<h:inputText size="10" value="#{autorBean.nacionalidad}"/>
+			Titulo:<h:inputText size="10" value="#{capituloBean.nacionalidad}"/>
 		</ul>
 		
-		<h:commandButton value="Add" action="#{autorBean.add}" />
+		
+		<h:commandButton value="Add" action="#{capituloBean.add}" />
 	</h:form>
 </h:body>
 </html>
