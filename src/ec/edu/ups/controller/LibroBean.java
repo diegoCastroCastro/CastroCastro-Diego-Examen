@@ -13,7 +13,6 @@ import javax.inject.Named;
 import ec.edu.ups.ejb.AutorFacade;
 import ec.edu.ups.ejb.CapituloFacade;
 import ec.edu.ups.ejb.LibroFacade;
-import ec.edu.ups.model.Autor;
 import ec.edu.ups.model.Capitulo;
 import ec.edu.ups.model.Libro;
 
@@ -39,7 +38,7 @@ public class LibroBean implements Serializable {
 	
 	private int num;
 	private String titulo;
-	private Integer autor;
+	private int autor;
 	
 	private Libro libro;
 	private Capitulo capitulo;
@@ -59,6 +58,30 @@ public class LibroBean implements Serializable {
 	}
 
 	
+	public LibroFacade getEjbLibroFacade() {
+		return ejbLibroFacade;
+	}
+
+	public void setEjbLibroFacade(LibroFacade ejbLibroFacade) {
+		this.ejbLibroFacade = ejbLibroFacade;
+	}
+
+	public AutorFacade getEjbAutorFacade() {
+		return ejbAutorFacade;
+	}
+
+	public void setEjbAutorFacade(AutorFacade ejbAutorFacade) {
+		this.ejbAutorFacade = ejbAutorFacade;
+	}
+
+	public CapituloFacade getEjbCapituloFacade() {
+		return ejbCapituloFacade;
+	}
+
+	public void setEjbCapituloFacade(CapituloFacade ejbCapituloFacade) {
+		this.ejbCapituloFacade = ejbCapituloFacade;
+	}
+
 	public Libro[] getList(){
 		return list.toArray(new Libro[0]);
 	}
@@ -135,11 +158,13 @@ public class LibroBean implements Serializable {
 		this.titulo = titulo;
 	}
 
-	public Integer getAutor() {
+	
+
+	public int getAutor() {
 		return autor;
 	}
 
-	public void setAutor(Integer autor) {
+	public void setAutor(int autor) {
 		this.autor = autor;
 	}
 
@@ -169,6 +194,7 @@ public class LibroBean implements Serializable {
 		capitulo.setNumero(num);
 		capitulo.setTitulo(this.titulo);
 		capitulo.setAutor(ejbAutorFacade.find(this.autor));
+		//ejbCapituloFacade.create(capitulo);
 		listCapitulos.add(capitulo);
 		capitulo = new Capitulo();
 	}

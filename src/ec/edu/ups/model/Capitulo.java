@@ -35,16 +35,12 @@ public class Capitulo implements Serializable {
 		
 	}
 	
-	
-
 	public Capitulo(int numero, String titulo) {
 		super();
 		this.numero = numero;
 		this.titulo = titulo;
 		this.autor = autor;
 	}
-
-
 
 	public int getCodigo() {
 		return codigo;
@@ -92,10 +88,5 @@ public class Capitulo implements Serializable {
 		return "Capitulo [codigo=" + codigo + ", numero=" + numero + ", titulo=" + titulo + ", editable=" + editable
 				+ "]";
 	}
-	
-	
-	
-	
-	
 	
 }

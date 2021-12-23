@@ -37,12 +37,26 @@
 			headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
 			<h:column>
 				<f:facet name="header">Codigo</f:facet>#{c.codigo}</h:column>
+				
 			<h:column>
-				<f:facet name="header">Nombre</f:facet>
-				<h:inputText value="#{c.nombre}" size="10"
+				<f:facet name="header"># Capitulos</f:facet>
+				<h:inputText value="#{libroBean.num}" size="10"
+					rendered="#{c.editable}" requiered="true" />
+				<h:outputText value="#{libroBean.num}" rendered="#{not c.editable}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nombre Capitulo</f:facet>
+				<h:inputText value="#{libroBean.titulo}" size="10"
 					rendered="#{c.editable}" requiered="true"/>
-				<h:outputText value="#{c.nombre}" rendered="#{not c.editable}" />
+				<h:outputText value="#{libroBean.titulo}" rendered="#{not c.editable}" />
 			</h:column>	
+			<h:column>
+				<f:facet name="header">Autores</f:facet>
+				<h:inputText value="#{libroBean.autor}" size="10"
+					rendered="#{c.editable}" requiered="true"/>
+				<h:outputText value="#{libroBean.autor}" rendered="#{not c.editable}" />
+			</h:column>
+			
 			<h:column>
 				<f:facet name="header">ISBN</f:facet>
 				<h:inputText value="#{c.isbn}" size="10"
@@ -57,20 +71,6 @@
 			</h:column>		
 			
 			<h:column>
-				<f:facet name="header">Agregar Capitulos</f:facet>
-				<h:inputText value="#{c.numPag}" size="10"
-					rendered="#{c.editable}" requiered="true" />
-				<h:outputText value="#{c.numPag}" rendered="#{not c.editable}" />
-			</h:column>		
-			
-			<h:column>
-				<f:facet name="header">Autores</f:facet>
-				<h:inputText value="#{libroBean.autor}" size="10"
-					rendered="#{c.editable}" requiered="true"/>
-				<h:outputText value="#{libroBean.autor}" rendered="#{not c.editable}" />
-			</h:column>
-			
-			<h:column>
 				<f:facet name="header">Accion</f:facet>
 				<h:commandLink value="Delete" action="#{libroBean.delete(c)}" />
 			</h:column>
@@ -83,25 +83,34 @@
 			</h:column>
 		</h:dataTable>
 		<ul>
-			Nombre:<h:inputText size="10" value="#{libroBean.nombre}"/>
+			# Capitulo:<h:inputText value="#{libroBean.num}"/>
 		</ul>
 		<ul>
-			ISBN:<h:inputText size="10" value="#{libroBean.isbn}"/>
+			Nombre Capitulo:<h:inputText size="10" value="#{libroBean.titulo}"/>
 		</ul>
-		<ul>
-			Paginas:<h:inputText size="10" value="#{libroBean.numPag}"/>
-		</ul>
-		
-		<ul>
-			Numero de Capitulo:<h:inputText value="#{libroBean.num}"/>
-		</ul>
-		    
 		<ul>
 			Autor:<h:selectOneMenu value="#{libroBean.autor}">
 					<f:selectItem itemLabel="Select One" itemValue=""/>
 					<f:selectItems value="#{autorBean.list}" var="autor" itemLabel="#{autor.nombre}" itemValue="#{autor.codigo}"/>
 				</h:selectOneMenu>
-		</ul>      
+		</ul> 
+		
+		<h:commandButton value="Agrega Capitulo" action="#{libroBean.agregaCapitulo()}" />
+		
+		  
+		<ul>
+			ISBN:<h:inputText size="10" value="#{libroBean.isbn}"/>
+		</ul>
+		<ul>
+			Nombre Libro:<h:inputText size="10" value="#{libroBean.nombre}"/>
+		</ul>
+		<ul>
+			Paginas:<h:inputText size="10" value="#{libroBean.numPag}"/>
+		</ul>
+		
+		
+		    
+		   
 		       
 		   
 		

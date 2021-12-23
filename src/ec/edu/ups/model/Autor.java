@@ -2,13 +2,8 @@ package ec.edu.ups.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Transient;
+import javax.persistence.*;
+
 
 
 @Entity
@@ -69,6 +64,14 @@ public class Autor implements Serializable {
 	public void setEditable(boolean editable) {
 		this.editable = editable;
 	}
+
+	@Override
+	public String toString() {
+		return "Autor [codigo=" + codigo + ", nombre=" + nombre + ", nacionalidad=" + nacionalidad + ", editable="
+				+ editable + ", capitulo=" + capitulo + "]";
+	}
+	
+	
 
 	
 }

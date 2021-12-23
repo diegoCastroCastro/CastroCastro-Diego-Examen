@@ -34,8 +34,6 @@ public class Libro implements Serializable{
 		
 	}
 	
-	
-
 	public Libro(String nombre, String isbn, int numPag) {
 		super();
 		this.nombre = nombre;
@@ -44,9 +42,6 @@ public class Libro implements Serializable{
 		this.listaCapitulos = listaCapitulos;
 	}
 	
-	
-
-
 
 	public int getCodigo() {
 		return codigo;
